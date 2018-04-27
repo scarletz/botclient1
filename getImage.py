@@ -40,18 +40,26 @@ def save_image(filename, r):
     print filename
     i = Image.open(StringIO(r.content))
     i.save(filename)
-def test():
-    args = sys.argv
 
+
+def test(subs=None):
+    if subs == None:
+        args = sys.argv
+    
+        if len(args)<=1:
+            print "error:please set args1(num) return"
+            return
+        subs=args[1]
     url = "https://homeict.net/image/{mid}"
-    if len(args)<=1:
-        print "error:please set args1(num) return"
-        return
+    url=url.replace("{mid}",subs)
 
-    url=url.replace("{mid}",args[1])
-
-    resp=download_image(url)
-    save_image(make_filename("image",args[1],"a.jpg"),resp)
-
+    try:
+        resp=download_image(url)
+    except:
+        import traceback
+        traceback.print_exc()
+        return "error"
+    save_image(make_filename("image",subs,"a.jpg"),resp)
+    return "ok"
 if __name__ == '__main__':
     test()
