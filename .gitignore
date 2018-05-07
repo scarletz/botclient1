@@ -3,3 +3,4 @@ image
 !.gitignore
 *~
 *.pyc
+app
