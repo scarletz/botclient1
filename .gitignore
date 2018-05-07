@@ -2,3 +2,4 @@
 image
 !.gitignore
 *~
+*.pyc
