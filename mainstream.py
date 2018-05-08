@@ -4,7 +4,6 @@ import time
 import getImage
 import os
 
-
 import re
 import codecs
  
@@ -48,17 +47,8 @@ def test():
 
   os.system("3_segmentFrames.sh ..")
   os.system("4_caffeTest.sh ..")  
-#  os.system("rm ../intermediate/analysisFramesGpsInfo.csv")
-  
-#  f = open('../intermediate/analysisFramesGpsInfo.csv', 'w')
-#  f.write("NAME,LAT,LON,TIME1,TIME2\n")
-#  lonlat=r.text.split(":")
-#  strs="frame00000.jpg,"+lonlat[0]+","+lonlat[1]+",0,0\n"
-#  f.write(strs)
-#  f.close()
   os.system("5_estimateDamageLevel.sh ..")
-  
-
+ 
   newText="LineData0"
   read_file = open("../parameter.yml", 'r')
   write_file = open("../parameter.yml.new", 'w')
@@ -73,13 +63,7 @@ def test():
   
   os.system("rm  ../parameter.yml")
   os.system("mv ../parameter.yml.new ../parameter.yml")
-
-  os.system("6_createVisData.sh ../ ../app")
-
-
-  
-
-
+  #os.system("6_createVisData.sh ../ ../app")
 
   return 0
 
