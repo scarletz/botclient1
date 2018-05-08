@@ -68,8 +68,9 @@ def test():
   return 0
 
 if __name__ == '__main__':
-  for i in range(10):
+  for i in range(100):
     ret=test()
     if ret==0:
 	break
+    print "sleep"
     time.sleep(5)
